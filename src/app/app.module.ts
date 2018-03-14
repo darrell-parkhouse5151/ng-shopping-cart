@@ -10,11 +10,11 @@ import { ProductDataService } from './services/product.service';
 import { LocalStorageService } from './services/storage.service';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
-import { OrderConmfirmationComponent } from './order-conmfirmation/order-conmfirmation.component';
 import { StoreFrontComponent } from './store-front/store-front.component';
 import { AppRoutingModule } from './app.routing';
 import { Local } from 'protractor/built/driverProviders';
 import { ShoppingCartService } from './services/shopping-cart.service';
+import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
 
 
 @NgModule({
@@ -22,8 +22,8 @@ import { ShoppingCartService } from './services/shopping-cart.service';
         AppComponent,
         ShoppingCartComponent,
         CheckoutComponent,
-        OrderConmfirmationComponent,
-        StoreFrontComponent
+        StoreFrontComponent,
+        OrderConfirmationComponent
     ],
     imports: [
         BrowserModule,
