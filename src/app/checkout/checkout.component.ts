@@ -24,6 +24,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
     public cart: Observable<ShoppingCart>;
     public cartItems: ICartItemWitheProduct[];
     public itemCount: number;
+    public deliveryOption: DeliveryOption;
 
     public products: Product[];
     private cartSubscription: Subscription;
