@@ -8,20 +8,38 @@ import { CachingServiceBase } from './services/caching.service';
 import { DeliveryOptionDataService } from './services/delivery-options.service';
 import { ProductDataService } from './services/product.service';
 import { LocalStorageService } from './services/storage.service';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { OrderConmfirmationComponent } from './order-conmfirmation/order-conmfirmation.component';
+import { StoreFrontComponent } from './store-front/store-front.component';
+import { AppRoutingModule } from './app.routing';
+import { Local } from 'protractor/built/driverProviders';
+import { ShoppingCartService } from './services/shopping-cart.service';
 
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        ShoppingCartComponent,
+        CheckoutComponent,
+        OrderConmfirmationComponent,
+        StoreFrontComponent
     ],
     imports: [
-        BrowserModule
+        BrowserModule,
+        AppRoutingModule
     ],
     providers: [
         CachingServiceBase,
         DeliveryOptionDataService,
         ProductDataService,
-        LocalStorageService
+        LocalStorageService,
+        {provide: LocalStorageService, useClass: Local},
+        {
+            deps: [LocalStorageService, ProductDataService, DeliveryOptionDataService],
+            provide: ShoppingCartService,
+            useClass: ShoppingCartService
+        }
     ],
     bootstrap: [AppComponent]
 })
